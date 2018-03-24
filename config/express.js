@@ -60,8 +60,8 @@ module.exports = function (app, passport) {
   if (env !== 'test') app.use(morgan(log));
 
   // set views path, template engine and default layout
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'jade');
+  app.set('views', config.root + '/la-frontend/dist');
+  //app.set(view engine)
 
   // expose package.json to views
   app.use(function (req, res, next) {
