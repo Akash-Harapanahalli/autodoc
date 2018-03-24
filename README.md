@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 [![Build Status](https://img.shields.io/travis/madhums/node-express-mongoose-demo.svg?style=flat)](https://travis-ci.org/madhums/node-express-mongoose-demo)
 [![Dependencies](https://img.shields.io/david/madhums/node-express-mongoose-demo.svg?style=flat)](https://david-dm.org/madhums/node-express-mongoose-demo)
@@ -64,3 +65,7 @@ $ npm test
 ## License
 
 MIT
+=======
+# autodoc
+For teams to create indexable, running logs of projects during work time by using Amazon's Alexa.
+>>>>>>> 74e6bea2e7c950ee74e1a4564c4c54a12ecdce61
