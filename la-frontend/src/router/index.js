@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import mainScreen from '@/components/mainScreen'
+import messagesView from '@/components/messagesView'
 
 Vue.use(Router)
 
@@ -9,7 +10,12 @@ export default new Router({
     {
       path: '/',
       name: 'mainScreen',
-      component: Hello
+      component: mainScreen
+    },
+    {
+      path: '/messages',
+      name: 'messagesView',
+      component: messagesView
     }
   ]
 })
