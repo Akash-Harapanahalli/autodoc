@@ -9,7 +9,7 @@ const articles = require('../app/controllers/articles');
 const comments = require('../app/controllers/comments');
 const tags = require('../app/controllers/tags');
 const auth = require('./middlewares/authorization');
-
+const messages = require('../app/controllers/messages');
 /**
  * Route middlewares
  */
@@ -91,6 +91,8 @@ module.exports = function (app, passport) {
   // tag routes
   app.get('/tags/:tag', tags.index);
 
+  // messasge routes
+  app.get('/api/messages', messages.index);
 
   /**
    * Error handling
