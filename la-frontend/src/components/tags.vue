@@ -62,8 +62,6 @@ export default {
       console.log('Searching for ' + this.searchString)
       this.searchResults = this.logs.filter(log => (log.tags.includes(this.searchString)))
       console.log(this.searchResults)
-
-      this.onLoad()
     }
   }
 }
