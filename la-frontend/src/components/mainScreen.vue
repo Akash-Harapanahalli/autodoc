@@ -1,12 +1,16 @@
 <template>
   <div class="mainScreen">
-    <van-col span="0"> 
+    <van-col span="4"> 
       <van-list 
         v-model="loading"
         :finished="finished"
         @load="onLoad"
       >
-        <van-cell class="cell" v-for="item in list" :key="item" :title="item + ''" :url="item"/> 
+      <div v-for="item in list" :key="item">
+        <router-link :to="item">
+          <van-cell class="cell" :title="item + ''"/> 
+        </router-link>
+      </div>
       </van-list> 
     </van-col>
   </div>
@@ -28,15 +32,16 @@ export default {
   },
   methods: {
     onLoad () {
-      /*
       setTimeout(() => {
-        if (this.list.length >= 2) {
-          this.finished = true
-          this.loading = false
+        for (let i = 0; i < 10; i++) {
+          this.list.push(this.list.length + 1)
         }
-      }, 500)
-      */
-      this.loading = false
+        this.loading = false
+
+        if (this.list.length >= 10) {
+          this.finished = true
+        }
+      }, 100)
     }
   }
 }
@@ -65,8 +70,9 @@ a {
 .cell {
   font-size: 30px;
   margin: 0px;
-  padding: 30px;
+  padding: 100px;
   color: #ffffff;
-  background-color: #2c3e50
+  background-color: #2c3e50;
+  height: 200px;
 }
 </style>

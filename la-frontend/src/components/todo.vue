@@ -1,6 +1,6 @@
 <template>
   <div class="todo">
-    <van-col span="0"> 
+    <van-col span="20" offset="4"> 
       <van-list 
         v-model="loading"
         :finished="finished"
@@ -19,8 +19,8 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js PWA',
       list: [
-        'todo',
-        'logs'
+        'item1',
+        'item2'
       ],
       loading: false,
       finished: false
@@ -28,15 +28,7 @@ export default {
   },
   methods: {
     onLoad () {
-      /*
-      setTimeout(() => {
-        if (this.list.length >= 2) {
-          this.finished = true
-          this.loading = false
-        }
-      }, 500)
-      */
-      this.loading = false
+
     }
   }
 }
