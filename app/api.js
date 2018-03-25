@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const live = require('./live');
+const cleanInput = require('./clean-input')
 
 const getRandomMessages = (n) => {
   const getNext = () => {
