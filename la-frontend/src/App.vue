@@ -4,15 +4,13 @@
       <span>Autolog</span>
     </header>
     <main>
+      <van-tabs @click="handleTabClick">
+        <div class="navbar" v-for="index in tabs" :key="index.name">
+          <van-tab :title="index.name" />
+        </div>
+      </van-tabs>
       <router-view></router-view>
     </main>
-    <van-tabs :active="active">
-      <div class="navbar" v-for="index in tabs" :key="index">
-        <router-link :to="index">
-          <van-tab :title="index"/>
-        </router-link>
-      </div>
-    </van-tabs>
   </div>
 </template>
 
@@ -22,10 +20,17 @@ export default {
   data () {
     return {
       tabs: [
-        'HOME',
-        'LOGS',
-        'TODO'
+        {name: 'HOME', link: 'messages'},
+        {name: 'LOGS', link: 'logs'},
+        {name: 'TODO', link: 'todo'},
+        {name: 'TAG SEARCH', link: 'tags'}
       ]
+    }
+  },
+  methods: {
+    handleTabClick (index) {
+      console.log('hello')
+      this.$router.push(this.tabs[index].link)
     }
   }
 }
@@ -37,15 +42,15 @@ body {
   margin: 0;
 }
 
-.navbar {
-  font-size: 10px
-}
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.navbar {
+  font-size: 10px;
 }
 
 main {
