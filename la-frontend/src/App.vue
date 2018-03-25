@@ -41,7 +41,7 @@ export default {
 
 body {
   margin: 0;
-  max-width: 80%;
+  width: 80%;
   min-width: 300px;
   margin: auto;
   background-color: #ffffff;
