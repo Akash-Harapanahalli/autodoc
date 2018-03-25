@@ -16,7 +16,7 @@ const getRandomMessages = (n) => {
     logs.push({
       text: '' +  i + ': ' + msg,
       timestamp: new Date(),
-      tags: [t]
+      tags: ['lift', 'claw']
     });
   }
   return logs;
