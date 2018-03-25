@@ -63,7 +63,8 @@ router.get('/messages', function (req, res, next) {
 
 
 router.post('/messages/add', function (req, res) {
-  cleanInput(req.body, req._startTime)
+  console.log(req.body.msg);
+  live.response.push(cleanInput(req.body.msg, req._startTime));
   return res.json(req.body);
 });
 

@@ -34,7 +34,7 @@ export default {
   },
   mounted () {
     var ctx = this
-    axios.get('/api/logs')
+    axios.get('/api/live')
       .then(function (response) {
         ctx.logs = response.data.response
         console.log(response)
