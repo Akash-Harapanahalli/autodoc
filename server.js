@@ -15,7 +15,7 @@ require('dotenv').config();
 const fs = require('fs');
 const join = require('path').join;
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const passport = require('passport');
 const config = require('./config');
 
@@ -39,10 +39,10 @@ require('./config/passport')(passport);
 require('./config/express')(app, passport);
 require('./config/routes')(app, passport);
 
-connect()
-  .on('error', console.log)
-  .on('disconnected', connect)
-  .once('open', listen);
+// connect()
+//   .on('error', console.log)
+//   .on('disconnected', connect)
+//   .once('open', listen);
 
 function listen () {
   if (app.get('env') === 'test') return;
@@ -50,7 +50,9 @@ function listen () {
   console.log('Express app started on port ' + port);
 }
 
-function connect () {
-  var options = { server: { socketOptions: { keepAlive: 1 } } };
-  return mongoose.connect(config.db, options).connection;
-}
+listen();
+
+// function connect () {
+//   var options = { server: { socketOptions: { keepAlive: 1 } } };
+//   return this; // mongoose.connect(config.db, options).connection;
+// }
