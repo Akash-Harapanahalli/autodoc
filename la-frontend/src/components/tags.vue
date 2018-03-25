@@ -63,13 +63,12 @@ export default {
       console.log(this.searchResults)
       this.i = 0
 
-      for(var j = 0; j < this.searchResults.length; j++){
-        this.onLoad();
+      for (var j = 0; j < this.searchResults.length; j++) {
+        this.onLoad()
       }
     }
   }
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
