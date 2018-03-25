@@ -42,6 +42,7 @@ module.exports = function (app, passport) {
     credentials: true
   }));
 
+  
   // Static files middleware
   app.use(express.static(config.root + '/la-frontend/dist'));
 
