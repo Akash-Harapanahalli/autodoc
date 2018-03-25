@@ -28,10 +28,9 @@ const fail = {
 
 module.exports = function (app, passport) {
 
-  // api routes
   app.use('/api', api);
 
-  const pauth = passport.authenticate.bind(passport);
+  // const pauth = passport.authenticate.bind(passport);
 
   // user routes
   // app.get('/login', users.login);

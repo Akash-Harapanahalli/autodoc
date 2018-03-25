@@ -7,7 +7,7 @@ router.get('/messages', function (req, res, next) {
     ({
       response: [
         {
-          text: 'added dank claw',
+          text: 'hi ',
           timestamp: '9pm',
           tags: ['claw']
         },
@@ -22,8 +22,8 @@ router.get('/messages', function (req, res, next) {
 });
 
 router.post('/messages/add', function (req, res) {
-  console.log(req);
-  console.log('post request recieved: ' + req)
+  console.log('[' + req._startTime + ']');
+  console.log(req.body);
   return res.json('logged');
 });
 
