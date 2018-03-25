@@ -37,21 +37,3 @@ export default new Router({
     }
   ]
 })
-
-/*
-
-class Log {
-  constructor () {
-    this.string = ''
-    this.tags = {}
-    this.timestamp = ''
-  }
-
-  genTags () {
-    // create functionality
-  }
-}
-
-var l = new Log() // ==> to stop the compiler from cussing me out.
-
-*/

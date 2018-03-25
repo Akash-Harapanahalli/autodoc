@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <span>Autolog</span>
+      <img src="./assets/autologger_logo.png" height="100">
+      <span>AutoLog: Automated Meeting Logger</span>
     </header>
     <main>
       <van-tabs @click="handleTabClick">
-        <div class="navbar" v-for="index in tabs" :key="index.name">
+        <div v-for="index in tabs" :key="index.name">
           <van-tab :title="index.name" />
         </div>
       </van-tabs>
@@ -49,8 +50,11 @@ body {
   color: #2c3e50;
 }
 
-.navbar {
-  font-size: 10px;
+.van-tab {
+  font-size: 20px;
+  background-color: #355c70;
+  color: #ffffff;
+  
 }
 
 main {
@@ -60,10 +64,11 @@ main {
 
 header {
   margin: 0;
-  height: 56px;
+  height: 100px;
   padding: 0 16px 0 24px;
-  background-color: #35495E;
+  background-color: #ffffff;
   color: #ffffff;
+  position: relative;
 }
 
 header span {
