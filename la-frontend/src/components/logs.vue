@@ -12,23 +12,7 @@
 
 <script>
 
-class Log {
-  constructor (funboi) {
-    this.string = funboi
-    this.tags = {}
-    this.timestamp = ''
-  }
-
-  genTags () {
-    // create functionality
-  }
-}
-
-var allThemLogs = []
-
-for (var i = 0; i < 100; i++) {
-  allThemLogs[i] = new Log('Henlo. This is log #' + i)
-}
+import axios from 'axios'
 
 export default {
   name: 'todo',
@@ -37,33 +21,32 @@ export default {
       msg: 'Welcome to Your Vue.js PWA',
       list: [
       ],
+      logs: [
+      ],
       loading: false,
-      finished: false
+      finished: false,
+      i: 1
     }
+  },
+  mounted () {
+    var ctx = this
+    axios.get('/api/logs')
+      .then(function (response) {
+        ctx.logs = response.data.response
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   methods: {
     onLoad () {
-      var i = 4
       setTimeout(() => {
         this.loading = false
 
-        this.list.push(allThemLogs[i].string)
+        this.list.push(this.logs[this.i].text)
 
-        if (this.list.length >= 40 || this.list.length >= allThemLogs.length) {
-          this.finished = false
-        }
-
-        i++
-        /*
-        for (let i = 0; i < 10; i++) {
-          this.list.push('Log ' + (this.list.length + 1))
-        }
-        this.loading = false
-
-        if (this.list.length >= 40) {
-          this.finished = true
-        }
-        */
+        this.i++
       }, 50)
     }
   }
