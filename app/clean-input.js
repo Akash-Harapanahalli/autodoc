@@ -20,7 +20,12 @@ var tagsToFind = [
   'music',
   'driving',
   'practice',
-  'robot'
+  'robot',
+  'tomorrow',
+  'todo',
+  'to do',
+  'need to',
+  'have to'
 ];
 
 module.exports = function (textbody, time) {
