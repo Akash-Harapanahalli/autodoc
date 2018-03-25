@@ -1,5 +1,5 @@
 <template>
-  <div class="mainScreen">
+  <div class="todo">
     <van-col span="0"> 
       <van-list 
         v-model="loading"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'mainScreen',
+  name: 'todo',
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
