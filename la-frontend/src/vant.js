@@ -13,7 +13,8 @@ import {
   Tabs,
   Search,
   Checkbox,
-  CheckboxGroup
+  CheckboxGroup,
+  Tag
 } from 'vant'
 Vue.use(Button)
   .use(Row)
@@ -27,5 +28,6 @@ Vue.use(Button)
   .use(Search)
   .use(Checkbox)
   .use(CheckboxGroup)
+  .use(Tag)
 
 Locale.use('en-US', enUS)
