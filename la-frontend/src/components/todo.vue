@@ -1,8 +1,14 @@
 <template>
   <div class="todo">
-    <van-checkbox-group v-model="result">
-      <van-checkbox v-for="item in searchResults" :key="item" :title="item + ''" :v-model="item.done" />
-    </van-checkbox-group>
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      @load="onLoad"
+    >
+      <van-cell v-for="(item, index) in list" :key="item" :title="item + ''">
+        <van-checkbox :name="item">Checkbox {{ searchResults[index].done }}</van-checkbox>
+      </van-cell>
+    </van-list>
   </div>
 </template>
 
@@ -57,6 +63,7 @@ export default {
       console.log('Searching for ' + 'todo')
       this.searchResults = this.logs.filter(log => ((log.tags.includes('tomorrow') || log.tags.includes('todo') || log.tags.includes('to do') || log.tags.includes('need to') || log.tags.includes('have to'))))
       console.log(this.searchResults)
+
       this.i = 0
 
       for (var j = 0; j < this.searchResults.length; j++) {
@@ -67,7 +74,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style>
 h1, h2 {
   font-weight: none;
