@@ -1,12 +1,8 @@
 <template>
   <div class="todo">
-    <van-list
-      v-model="loading"
-      :finished="finished"
-      @load="onLoad"
-    >
-      <van-cell v-for="item in list" :key="item" :title="item + ''" />
-    </van-list>
+    <van-checkbox-group v-model="result">
+      <van-checkbox v-for="item in searchResults" :key="item" :title="item + ''" :v-model="item.done" />
+    </van-checkbox-group>
   </div>
 </template>
 

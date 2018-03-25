@@ -11,7 +11,9 @@ import {
   NavBar,
   Tab,
   Tabs,
-  Search
+  Search,
+  Checkbox,
+  CheckboxGroup
 } from 'vant'
 Vue.use(Button)
   .use(Row)
@@ -23,5 +25,7 @@ Vue.use(Button)
   .use(Tab)
   .use(Tabs)
   .use(Search)
+  .use(Checkbox)
+  .use(CheckboxGroup)
 
 Locale.use('en-US', enUS)
