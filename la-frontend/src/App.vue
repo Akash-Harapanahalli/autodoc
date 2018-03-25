@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/autologger_logo.png" height="100" sticky>
+      <img id="autologimg" src="./assets/autologger_logo.png" height="100" sticky>
       <span sticky>AutoLog: Automated Meeting Logger</span>
     </header>
     <main>
@@ -40,13 +40,14 @@ export default {
 <style>
 
 body {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: #ffffff;
 }
 
 #app {
-  width: 80%;
-  min-width: 450px;
+  max-width: 1000px;
+  /* min-width: 450px; */
   margin: auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -83,5 +84,10 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+
+#autologimg {
+  width: 100%;
+  max-width: 400px;
 }
 </style>
