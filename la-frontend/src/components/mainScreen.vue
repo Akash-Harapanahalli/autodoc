@@ -1,18 +1,6 @@
 <template>
   <div class="mainScreen">
-    <van-col span="4"> 
-      <van-list 
-        v-model="loading"
-        :finished="finished"
-        @load="onLoad"
-      >
-      <div v-for="item in list" :key="item">
-        <router-link :to="item">
-          <van-cell class="cell" :title="item + ''"/> 
-        </router-link>
-      </div>
-      </van-list> 
-    </van-col>
+    
   </div>
 </template>
 

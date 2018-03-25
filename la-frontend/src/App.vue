@@ -6,18 +6,39 @@
     <main>
       <router-view></router-view>
     </main>
+    <van-tabs :active="active">
+      <div class="navbar" v-for="index in tabs" :key="index">
+        <router-link :to="index">
+          <van-tab :title="index"/>
+        </router-link>
+      </div>
+    </van-tabs>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      tabs: [
+        'HOME',
+        'LOGS',
+        'TODO'
+      ]
+    }
+  }
 }
 </script>
 
 <style>
+
 body {
   margin: 0;
+}
+
+.navbar {
+  font-size: 10px
 }
 
 #app {

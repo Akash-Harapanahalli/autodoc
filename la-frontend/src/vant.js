@@ -7,7 +7,10 @@ import {
   Col,
   Cell,
   CellGroup,
-  List
+  List,
+  NavBar,
+  Tab,
+  Tabs
 } from 'vant'
 Vue.use(Button)
   .use(Row)
@@ -15,5 +18,8 @@ Vue.use(Button)
   .use(List)
   .use(Cell)
   .use(CellGroup)
+  .use(NavBar)
+  .use(Tab)
+  .use(Tabs)
 
 Locale.use('en-US', enUS)
