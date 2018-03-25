@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/messages', function (req, res, next) {
+router.get('/messages', function (req, res, next) {
   res.json(
     ({
       response: [
@@ -18,7 +18,7 @@ router.use('/messages', function (req, res, next) {
       ]
     })
   );
-  console.log('hit messages api endpoint')
+  console.log('hit messages api endpoint');
   next();
 });
 
