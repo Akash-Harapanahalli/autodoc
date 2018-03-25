@@ -1,6 +1,5 @@
 <template>
   <div class="todo">
-    <van-search search="Todo Search" @search="onSearch" v-model="searchString"/>
     <van-list
       v-model="loading"
       :finished="finished"
@@ -42,6 +41,7 @@ export default {
       .catch(function (error) {
         console.log(error)
       })
+    this.onSearch()
   },
   methods: {
     onLoad () {
