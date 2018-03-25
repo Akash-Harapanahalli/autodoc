@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const live = require('./live');
 
 const getRandomMessages = (n) => {
   const getNext = () => {
@@ -32,6 +33,13 @@ router.get('/todos', function (req, res, next) {
   return res.json({ response: getRandomMessages(10) });
 });
 
+router.get('/live', function (req, res, next) {
+  console.log('hit messages api endpoint');
+  return res.json(
+    (live)
+  );
+});
+
 router.get('/messages', function (req, res, next) {
   console.log('hit messages api endpoint');
   return res.json(
@@ -54,6 +62,11 @@ router.get('/messages', function (req, res, next) {
 
 
 router.post('/messages/add', function (req, res) {
+  live.response.push({
+    text: req.body,
+    starttime: req._startTime,
+    tags: ['default']
+  });
   console.log('[' + req._startTime + ']');
   console.log(req.body);
   return res.json(req.body);
