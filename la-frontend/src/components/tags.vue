@@ -55,13 +55,13 @@ export default {
     },
 
     onSearch () {
+      this.i = 0
+      this.list = []
       console.log('Searching for ' + this.searchString)
       var results = this.logs.filter(log => (log.tags.includes(this.searchString)))
       this.searchResults = results
       console.log(results)
 
-      this.list = []
-      this.i = 0
       this.onLoad()
     }
   }
