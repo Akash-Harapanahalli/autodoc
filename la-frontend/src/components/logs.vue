@@ -1,5 +1,5 @@
 <template>
-  <div class="todo">
+  <div class="logs">
     <van-list
       v-model="loading"
       :finished="finished"
@@ -26,7 +26,7 @@ export default {
     onLoad () {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          this.list.push('Todo ' + (this.list.length + 1))
+          this.list.push('Log ' + (this.list.length + 1))
         }
         this.loading = false
 

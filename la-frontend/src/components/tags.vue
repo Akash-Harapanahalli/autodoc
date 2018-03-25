@@ -1,5 +1,6 @@
 <template>
-  <div class="todo">
+  <div class="tags">
+    <van-search search="Tag Search" @search="onSearch" v-model="searchString"/>
     <van-list
       v-model="loading"
       :finished="finished"
@@ -12,28 +13,38 @@
 
 <script>
 export default {
-  name: 'todo',
+  name: 'tags',
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
       list: [
+
+      ],
+      searchResults: [
+
       ],
       loading: false,
-      finished: false
+      finished: false,
+      searchString: ''
     }
   },
   methods: {
     onLoad () {
       setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          this.list.push('Todo ' + (this.list.length + 1))
-        }
+        this.list.push(this.searchResults)
         this.loading = false
 
-        if (this.list.length >= 40) {
+        if (this.list.length >= 40 || this.list.length >= this.searchResults.length) {
           this.finished = true
         }
-      }, 500)
+      }, 50)
+    },
+
+    onSearch () {
+      console.log('Searching for ' + this.searchString)
+      var results = this.list.filter(item => (item.tags.includes(this.searchString)))
+      this.searchResults = results
+      console.log(results)
     }
   }
 }

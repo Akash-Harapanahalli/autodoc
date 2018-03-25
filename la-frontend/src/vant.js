@@ -10,7 +10,8 @@ import {
   List,
   NavBar,
   Tab,
-  Tabs
+  Tabs,
+  Search
 } from 'vant'
 Vue.use(Button)
   .use(Row)
@@ -21,5 +22,6 @@ Vue.use(Button)
   .use(NavBar)
   .use(Tab)
   .use(Tabs)
+  .use(Search)
 
 Locale.use('en-US', enUS)
