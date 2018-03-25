@@ -41,6 +41,10 @@ export default {
 
 body {
   margin: 0;
+  max-width: 80%;
+  min-width: 300px;
+  margin: auto;
+  background-color: #ffffff;
 }
 
 #app {
@@ -52,9 +56,7 @@ body {
 
 .van-tab {
   font-size: 20px;
-  background-color: #355c70;
-  color: #ffffff;
-  
+  background-color: #ffffff;
 }
 
 main {

@@ -5,12 +5,20 @@
       :finished="finished"
       @load="onLoad"
     >
-      <van-cell v-for="item in list" :key="item" :title="item + ''" />
+    
+        <div v-for="item in list" :key="item" >
+          <transition name="fade">
+            <van-cell :title="item + ''" />
+          </transition>
+         </div>
     </van-list>
   </div>
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'todo',
   data () {
@@ -18,22 +26,33 @@ export default {
       msg: 'Welcome to Your Vue.js PWA',
       list: [
       ],
+      todos: [
+      ],
       loading: false,
-      finished: false
+      finished: false,
+      i: 1
     }
+  },
+  mounted () {
+    var ctx = this
+    axios.get('/api/todos')
+      .then(function (response) {
+        ctx.todos = response.data.response
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   methods: {
     onLoad () {
       setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          this.list.push('Todo ' + (this.list.length + 1))
-        }
         this.loading = false
 
-        if (this.list.length >= 40) {
-          this.finished = true
-        }
-      }, 500)
+        this.list.push(this.todos[this.i].text)
+
+        this.i++
+      }, 50)
     }
   }
 }
@@ -65,5 +84,12 @@ a {
   padding: 30px;
   color: #ffffff;
   background-color: #2c3e50
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
