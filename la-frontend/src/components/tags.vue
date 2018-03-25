@@ -56,6 +56,7 @@ export default {
 
     onSearch () {
       this.i = 0
+      this.searchResults = []
       this.list = []
 
       console.log('Searching for ' + this.searchString)
