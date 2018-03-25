@@ -6,9 +6,7 @@
       @load="onLoad"
     >
       <van-cell v-for="item in list" :key="item" :title="item + ''">
-        <van-tag :v-for="tagItem in item.tags">
-          item.tags[tagItem];
-        </van-tag>
+        
       </van-cell>
     </van-list>
   </div>
@@ -49,7 +47,6 @@ export default {
         this.loading = false
 
         this.list.push(this.logs[this.i].text)
-
         this.i++
       }, 50)
     }

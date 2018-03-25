@@ -6,7 +6,7 @@
       @load="onLoad"
     >
       <van-cell v-for="(item, index) in list" :key="item" :title="item + ''">
-        <van-checkbox :name="item">Checkbox {{ searchResults[index].done }}</van-checkbox>
+        
       </van-cell>
     </van-list>
   </div>
