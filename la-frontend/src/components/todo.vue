@@ -54,8 +54,8 @@ export default {
       this.searchResults = []
       this.list = []
 
-      console.log('Searching for ' + "todo")
-      this.searchResults = this.logs.filter(log => ((log.tags.includes("tomorrow") || log.tags.includes("todo") || log.tags.includes("to do") || log.tags.includes("need to") || log.tags.includes("have to"))))
+      console.log('Searching for ' + 'todo')
+      this.searchResults = this.logs.filter(log => ((log.tags.includes('tomorrow') || log.tags.includes('todo') || log.tags.includes('to do') || log.tags.includes('need to') || log.tags.includes('have to'))))
       console.log(this.searchResults)
       this.i = 0
 
