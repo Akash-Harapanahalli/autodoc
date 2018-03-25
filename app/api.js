@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/messages', function (req, res, next) {
-  res.json(
+  console.log('hit messages api endpoint');
+  return res.json(
     ({
       response: [
         {
@@ -18,8 +19,12 @@ router.get('/messages', function (req, res, next) {
       ]
     })
   );
-  console.log('hit messages api endpoint');
-  next();
+});
+
+router.post('/messages/add', function (req, res) {
+  console.log(req);
+  console.log('post request recieved: ' + req)
+  return res.json('logged');
 });
 
 module.exports = router;
