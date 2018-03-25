@@ -55,13 +55,17 @@ export default {
     },
 
     onSearch () {
-      this.i = 0
       this.searchResults = []
       this.list = []
 
       console.log('Searching for ' + this.searchString)
       this.searchResults = this.logs.filter(log => (log.tags.includes(this.searchString)))
       console.log(this.searchResults)
+      this.i = 0
+
+      for(var j = 0; j < searchResults.length; j++){
+        this.onLoad();
+      }
     }
   }
 }
