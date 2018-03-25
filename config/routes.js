@@ -27,7 +27,10 @@ const fail = {
  */
 
 module.exports = function (app, passport) {
-  const pauth = passport.authenticate.bind(passport);
+
+  app.use('/api', api);
+
+  // const pauth = passport.authenticate.bind(passport);
 
   // user routes
   // app.get('/login', users.login);
@@ -93,7 +96,6 @@ module.exports = function (app, passport) {
   // app.get('/tags/:tag', tags.index);
 
   // messasge routes
-  app.use('/api', api);
 
   /**
    * Error handling

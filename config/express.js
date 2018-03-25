@@ -106,15 +106,15 @@ module.exports = function (app, passport) {
   // should be declared after session and flash
   app.use(helpers(pkg.name));
 
-  if (env !== 'test') {
-    app.use(csrf());
+  // if (env !== 'test') {
+  //   app.use(csrf());
 
-    // This could be moved to view-helpers :-)
-    app.use(function (req, res, next) {
-      res.locals.csrf_token = req.csrfToken();
-      next();
-    });
-  }
+  //   // This could be moved to view-helpers :-)
+  //   app.use(function (req, res, next) {
+  //     res.locals.csrf_token = req.csrfToken();
+  //     next();
+  //   });
+  // }
 
   if (env === 'development') {
     app.locals.pretty = true;
