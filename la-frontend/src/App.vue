@@ -41,13 +41,13 @@ export default {
 
 body {
   margin: 0;
-  width: 80%;
-  min-width: 300px;
-  margin: auto;
   background-color: #ffffff;
 }
 
 #app {
+  width: 80%;
+  min-width: 450px;
+  margin: auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

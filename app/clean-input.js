@@ -6,37 +6,38 @@
 // }
 
 var tagsToFind = [
-  "Lift",
-  "Drive",
-  "Mogo",
-  "Intake",
-  "Claw",
-  "Programming",
-  "Code",
-  "GitHub",
-  "Mech",
-  "Mechanical",
-  "Notebook",
-  "Music",
-  "Driving",
-  "Practice"
-]
+  'lift',
+  'drive',
+  'mogo',
+  'intake',
+  'claw',
+  'programming',
+  'code',
+  'github',
+  'mech',
+  'mechanical',
+  'notebook',
+  'music',
+  'driving',
+  'practice',
+  'robot'
+];
 
 module.exports = function (textbody, time) {
 
-  var textOut = textbody
-  var timeOut = time
-  var tagsOut = []
+  var textOut = textbody;
+  var timeOut = time;
+  var tagsOut = [];
 
-  tagsToFind.forEach(function(element){
-    if(textbody.contains(element)){
-      tags.push(element)
+  tagsToFind.forEach(function (element){
+    if (textbody.includes(element)){
+      tagsOut.push(element);
     }
-  })
+  });
 
   return {
     text: textOut,
     timestamp: timeOut,
     tags: tagsOut
-  }
+  };
 };
