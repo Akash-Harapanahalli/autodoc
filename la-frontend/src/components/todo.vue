@@ -37,11 +37,11 @@ export default {
       .then(function (response) {
         ctx.logs = response.data.response
         console.log(response)
+        ctx.onSearch()
       })
       .catch(function (error) {
         console.log(error)
       })
-    this.onSearch()
   },
   methods: {
     onLoad () {
