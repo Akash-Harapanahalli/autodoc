@@ -60,6 +60,7 @@ export default {
       this.searchResults = results
       console.log(results)
 
+      this.list = []
       this.i = 0
       this.onLoad()
     }
