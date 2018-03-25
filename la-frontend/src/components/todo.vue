@@ -30,7 +30,7 @@ export default {
       ],
       loading: false,
       finished: false,
-      i: 1
+      i: 0
     }
   },
   mounted () {

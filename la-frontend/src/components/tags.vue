@@ -12,39 +12,54 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'tags',
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
       list: [
-
       ],
       searchResults: [
-
+      ],
+      logs: [
       ],
       loading: false,
       finished: false,
       searchString: ''
     }
   },
+  mounted () {
+    var ctx = this
+    axios.get('/api/logs')
+      .then(function (response) {
+        ctx.logs = response.data.response
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  },
   methods: {
     onLoad () {
       setTimeout(() => {
-        this.list.push(this.searchResults)
         this.loading = false
 
-        if (this.list.length >= 40 || this.list.length >= this.searchResults.length) {
-          this.finished = true
-        }
+        this.list.push(this.searchResults[this.i].text)
+
+        this.i++
       }, 50)
     },
 
     onSearch () {
       console.log('Searching for ' + this.searchString)
-      var results = this.list.filter(item => (item.tags.includes(this.searchString)))
+      var results = this.logs.filter(log => (log.tags.includes(this.searchString)))
       this.searchResults = results
       console.log(results)
+
+      this.onLoad()
     }
   }
 }
