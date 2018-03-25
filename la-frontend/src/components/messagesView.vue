@@ -1,12 +1,13 @@
 <template>
   <div class="messagesView">
     <van-col span="0"> 
+      <p>messages</p>
       <van-list 
         v-model="loading"
         :finished="finished"
-        @load="onLoad"
       >
-        <van-cell v-for="item in list" :key="item" :title="item + ''"/>
+        <!-- @load="onLoad" -->
+        <van-cell v-for="item in list" :key="item" :title="'<' + item.timestamp + '> ' + item.text + ' ' + item.tags"/>
 
       </van-list> 
     </van-col>
@@ -14,6 +15,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'messagesView',
   data () {
@@ -25,6 +29,17 @@ export default {
       loading: false,
       finished: false
     }
+  },
+  mounted () {
+    var ctx = this
+    axios.get('/api/messages')
+      .then(function (response) {
+        ctx.list = response.data.response
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   methods: {
     onLoad () {
