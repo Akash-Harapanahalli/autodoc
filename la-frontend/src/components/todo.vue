@@ -1,16 +1,12 @@
 <template>
   <div class="todo">
+    <van-search search="Todo Search" @search="onSearch" v-model="searchString"/>
     <van-list
       v-model="loading"
       :finished="finished"
       @load="onLoad"
     >
-    
-        <div v-for="item in list" :key="item" >
-          <transition name="fade">
-            <van-cell :title="item + ''" />
-          </transition>
-         </div>
+      <van-cell v-for="item in list" :key="item" :title="item + ''" />
     </van-list>
   </div>
 </template>
@@ -20,24 +16,27 @@
 import axios from 'axios'
 
 export default {
-  name: 'todo',
+  name: 'tags',
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
       list: [
       ],
-      todos: [
+      searchResults: [
+      ],
+      logs: [
       ],
       loading: false,
       finished: false,
+      searchString: '',
       i: 0
     }
   },
   mounted () {
     var ctx = this
-    axios.get('/api/todos')
+    axios.get('/api/live')
       .then(function (response) {
-        ctx.todos = response.data.response
+        ctx.logs = response.data.response
         console.log(response)
       })
       .catch(function (error) {
@@ -49,10 +48,24 @@ export default {
       setTimeout(() => {
         this.loading = false
 
-        this.list.push(this.todos[this.i].text)
+        this.list.push(this.searchResults[this.i].text)
 
         this.i++
       }, 50)
+    },
+
+    onSearch () {
+      this.searchResults = []
+      this.list = []
+
+      console.log('Searching for ' + "todo")
+      this.searchResults = this.logs.filter(log => ((log.tags.includes("tomorrow") || log.tags.includes("todo") || log.tags.includes("to do") || log.tags.includes("need to") || log.tags.includes("have to"))))
+      console.log(this.searchResults)
+      this.i = 0
+
+      for (var j = 0; j < this.searchResults.length; j++) {
+        this.onLoad()
+      }
     }
   }
 }
@@ -84,12 +97,5 @@ a {
   padding: 30px;
   color: #ffffff;
   background-color: #2c3e50
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
 }
 </style>
