@@ -1,6 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
+const getRandomMessages = (n) => {
+  const getNext = () => 'abcdefghijklmnopqrstuvwxyz'.split('')[Math.floor(Math.random() * 26)];
+  let logs = [];
+  for (let i = 0; i < n; i++) {
+    let msg = ''
+    for (let j = 0; j < 80; j++) {
+      msg += getNext();
+    }
+    logs.push({
+      text: msg,
+      timestamp: new Date(),
+      tags: ['default']
+    });
+  }
+  return logs;
+};
+
+router.get('/logs', function (req, res, next) {
+  console.log('hit messages api endpoint');
+  return res.json({ response: getRandomMessages(40) });
+});
+
 router.get('/messages', function (req, res, next) {
   console.log('hit messages api endpoint');
   return res.json(
@@ -20,6 +42,7 @@ router.get('/messages', function (req, res, next) {
     })
   );
 });
+
 
 router.post('/messages/add', function (req, res) {
   console.log('[' + req._startTime + ']');
