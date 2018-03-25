@@ -16,7 +16,7 @@ const csrf = require('csurf');
 const cors = require('cors');
 const upload = require('multer')();
 
-const mongoStore = require('connect-mongo')(session);
+// const mongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const winston = require('winston');
 const helpers = require('view-helpers');
@@ -37,7 +37,7 @@ module.exports = function (app, passport) {
   }));
 
   app.use(cors({
-    origin: ['http://localhost:3000', 'https://reboil-demo.herokuapp.com'],
+    origin: ['http://localhost:3000', 'https://morning-garden-14636.herokuapp.com'],
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
     credentials: true
   }));
@@ -86,15 +86,15 @@ module.exports = function (app, passport) {
   // CookieParser should be above session
   app.use(cookieParser());
   app.use(cookieSession({ secret: 'secret' }));
-  app.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: pkg.name,
-    store: new mongoStore({
-      url: config.db,
-      collection : 'sessions'
-    })
-  }));
+  // app.use(session({
+  //   resave: false,
+  //   saveUninitialized: true,
+  //   secret: pkg.name,
+  //   store: new mongoStore({
+  //     url: config.db,
+  //     collection : 'sessions'
+  //   })
+  // }));
 
   // use passport session
   app.use(passport.initialize());
