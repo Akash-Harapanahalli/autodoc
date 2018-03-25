@@ -28,7 +28,8 @@ export default {
       ],
       loading: false,
       finished: false,
-      searchString: ''
+      searchString: '',
+      i: 0
     }
   },
   mounted () {
@@ -59,6 +60,7 @@ export default {
       this.searchResults = results
       console.log(results)
 
+      this.i = 0
       this.onLoad()
     }
   }
