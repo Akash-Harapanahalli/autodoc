@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     var ctx = this
-    axios.get('/api/messages')
+    axios.get('/api/live')
       .then(function (response) {
         ctx.list = response.data.response
         console.log(response)
