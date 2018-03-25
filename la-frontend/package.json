@@ -12,6 +12,7 @@
     "mongodb-server": "mongod --dbpath ./data"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vant": "^1.0.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
