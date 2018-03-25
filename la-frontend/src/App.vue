@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/autologger_logo.png" height="100">
-      <span>AutoLog: Automated Meeting Logger</span>
+      <img src="./assets/autologger_logo.png" height="100" sticky>
+      <span sticky>AutoLog: Automated Meeting Logger</span>
     </header>
     <main>
-      <van-tabs @click="handleTabClick">
+      <van-tabs @click="handleTabClick" sticky swipable>
         <div v-for="index in tabs" :key="index.name">
           <van-tab :title="index.name" />
         </div>
@@ -56,7 +56,8 @@ body {
 
 .van-tab {
   font-size: 20px;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #006792;
 }
 
 main {
